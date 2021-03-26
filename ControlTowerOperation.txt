@@ -1,3 +1,0 @@
-Receive landing request by the plane (the plane object do this)
-Choose proper gate (lenght matching & queue saturation)
-Wait the turn of the plane and send ok-landing

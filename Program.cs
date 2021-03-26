@@ -28,7 +28,7 @@ namespace Mediator_Pattern
          else 
          {
             Color.Foreground("red");
-            p.LogDestination($"Airplane {p.ID} ask mayday");
+            p.LogCamaleon($"Airplane {p.ID} ask mayday");
          }
       }
 

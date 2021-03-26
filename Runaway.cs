@@ -25,27 +25,22 @@ namespace Mediator_Pattern
       public async void Enqueue(Airplane p) {
 
          Landing.Enqueue(p);
+         LandingLogger.LogEnqueuing(p, this);
 
-         Color.Foreground("dark");
-         p.LogDestination($"Request enqueued to gate {ID} - Airplane ID{p.ID}\n{CurrentQueue()}");
-
-         if (Landing.TryPeek(out var _)) await Flush(p.LogDestination);
-         else await Dequeue(p);
+         while (Landing.TryPeek(out var next)) {
+            await Dequeue(next);
+         }
       }
 
-      public async Task Dequeue(Airplane p) { 
+      public async Task Dequeue(Airplane p) {
+
+         LandingLogger.LogLanding(p, this);
          var confirm = await p.Land(this);
          Landing.TryDequeue(out var _);
 
          Color.Foreground("green"); 
-         p.LogDestination(confirm);
-      }
+         p.LogCamaleon(confirm);
 
-      public async Task Flush(Action<string> LogDestination)
-      {
-         while (Landing.TryPeek(out var next)) {
-            await Dequeue(next);
-         }
       }
 
       public StringBuilder CurrentQueue() {

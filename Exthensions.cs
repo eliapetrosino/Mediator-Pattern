@@ -9,7 +9,6 @@ namespace Mediator_Pattern
          return Task.Delay(TimeSpan.FromSeconds(seconds)).GetAwaiter();
       }
    }
-
    public static class ObjExtension {
       public static string GetTypeShort(this object obj) {
          var pieces = obj.GetType().ToString().Split('.');

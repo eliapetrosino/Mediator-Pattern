@@ -7,32 +7,26 @@ namespace Mediator_Pattern
    public abstract class Airplane
    {
       protected readonly IMediator Mediator;
-      public Action<string> LogDestination;
+      public Action<string> LogCamaleon;
+
       public Airplane(IMediator mediator, Action<string> wheretolog) {
-         (Mediator, LogDestination) = (mediator, wheretolog);
+         (Mediator, LogCamaleon) = (mediator, wheretolog);
       }
 
 
       public double LandingDistanceNeeded { get; set; }
       public int ID { get; set; }
+      //TODO Add properties to the constructor
 
 
       public void RequestLanding() {
-         Color.Foreground("grey");
-         LogDestination($"\n* {this.GetTypeShort()} ID: {ID} ask for landing *");
+         LandingLogger.LogLandingRequest(this);
          Mediator.EnqueueLandingRequest(this); // The key of this pattern
-
-         
       }
 
       public async Task<string> Land(Runaway whereTo) {
-
-         Color.Foreground("blue");
-         LogDestination($"{this.GetTypeShort()} ID: {ID} Landing to gate {whereTo.ID}");
-
          var timeToLand = (int)whereTo.Length / 250;
          await timeToLand;
-
          return $"Gate {whereTo.ID} free\n";
       }
    } 
