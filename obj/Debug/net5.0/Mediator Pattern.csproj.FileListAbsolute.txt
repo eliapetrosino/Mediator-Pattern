@@ -1,0 +1,16 @@
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\bin\Debug\net5.0\Mediator Pattern.exe
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\bin\Debug\net5.0\Mediator Pattern.deps.json
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\bin\Debug\net5.0\Mediator Pattern.runtimeconfig.json
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\bin\Debug\net5.0\Mediator Pattern.runtimeconfig.dev.json
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\bin\Debug\net5.0\Mediator Pattern.dll
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\bin\Debug\net5.0\ref\Mediator Pattern.dll
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\bin\Debug\net5.0\Mediator Pattern.pdb
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\obj\Debug\net5.0\Mediator Pattern.csprojAssemblyReference.cache
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\obj\Debug\net5.0\Mediator Pattern.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\obj\Debug\net5.0\Mediator Pattern.AssemblyInfoInputs.cache
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\obj\Debug\net5.0\Mediator Pattern.AssemblyInfo.cs
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\obj\Debug\net5.0\Mediator Pattern.csproj.CoreCompileInputs.cache
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\obj\Debug\net5.0\Mediator Pattern.dll
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\obj\Debug\net5.0\ref\Mediator Pattern.dll
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\obj\Debug\net5.0\Mediator Pattern.pdb
+C:\Users\Pc\source\Repos\Learning_C#\DesignPatterns\Structural__Patterns\Mediator Pattern\obj\Debug\net5.0\Mediator Pattern.genruntimeconfig.cache
