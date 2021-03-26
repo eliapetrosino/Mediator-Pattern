@@ -1,8 +1,7 @@
 namespace Mediator_Pattern
 {
-   //? Come parametro di Runaway e conseguente Mediator anche nel suo costruttore
- 
    public static class LandingLogger {
+   //? Come parametro di Runaway e conseguente Mediator anche nel suo costruttore
       public static void LogLandingRequest(Airplane p) { 
          Color.Foreground("gray");
          p.LogCamaleon($"\n* {p.GetTypeShort()} ID: {p.ID} ask for landing *");

@@ -25,9 +25,9 @@ namespace Mediator_Pattern
       }
 
       public async Task<string> Land(Runaway whereTo) {
-         var timeToLand = (int)whereTo.Length / 250;
+         var timeToLand = (int)whereTo.Length / 200;
          await timeToLand;
-         return $"Gate {whereTo.ID} free\n";
+         return $"\nGate {whereTo.ID} free";
       }
    } 
 

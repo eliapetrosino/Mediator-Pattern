@@ -18,18 +18,17 @@ namespace Mediator_Pattern
          runaways = gatesbase;
       }
 
-      public void EnqueueLandingRequest(Airplane p) {
+
+      public async void EnqueueLandingRequest(Airplane p) {
+         while (MatchGate(p) == null) await 2000;
+         MatchGate(p).Enqueue(p);
+      }
+
+      private Runaway MatchGate(Airplane p) {
          var here = runaways.FirstOrDefault(r => r.Length > p.LandingDistanceNeeded
                && r.Landing.Count < r.MaxQueueable);
 
-         if (here != default) {
-            here.Enqueue(p); //? EnqueueAsync() in base a .Priority
-         }
-         else 
-         {
-            Color.Foreground("red");
-            p.LogCamaleon($"Airplane {p.ID} ask mayday");
-         }
+         return here;
       }
 
    }
@@ -67,7 +66,7 @@ namespace Mediator_Pattern
          #endregion
 
          foreach (var plane in planes) {
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             plane.RequestLanding();
          }
       }

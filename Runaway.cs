@@ -33,14 +33,12 @@ namespace Mediator_Pattern
       }
 
       public async Task Dequeue(Airplane p) {
-
          LandingLogger.LogLanding(p, this);
          var confirm = await p.Land(this);
-         Landing.TryDequeue(out var _);
 
          Color.Foreground("green"); 
          p.LogCamaleon(confirm);
-
+         Landing.TryDequeue(out var _);
       }
 
       public StringBuilder CurrentQueue() {
