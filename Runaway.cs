@@ -10,15 +10,15 @@ namespace Mediator_Pattern
       public readonly Queue<Airplane> Landing = new();
 
 
-      public int ID { get; init; }
-      public double Length { get; init; }
+      public int Id { get; set; }
+      public double Length { get; set; }
       public short MaxQueueable { get; }
 
 
-      public Runaway(int id, double length) 
+      public Runaway(int Id, double length) 
       {
          MaxQueueable = Convert.ToInt16((3200 / length) + 1);
-         ID = id; Length = length;
+         this.Id = Id; Length = length;
       }
 
 
@@ -54,11 +54,11 @@ namespace Mediator_Pattern
       public StringBuilder CurrentQueue() {
          var queue = new StringBuilder();
 
-         queue.Append($"Gate #{ID} Length: {Length}m ");
+         queue.Append($"Gate #{Id} Length: {Length}m ");
          queue.Append("Current queue --------------");
 
          foreach(var p in Landing) 
-            queue.Append("[" + p.ID + "]");
+            queue.Append("[" + p.Id + "]");
 
          return queue;
       }

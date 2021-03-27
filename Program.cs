@@ -54,12 +54,12 @@ namespace Mediator_Pattern
             if (rnd.Next() % 2 == 0) { 
                planes.Add(new Aircraft(command, (s) => { WriteLine(s); }) {
                   LandingDistanceNeeded = rnd.Next(700, 1800),
-                  ID = i * 24 + 1
+                  Id = i * 24 + 1
                });
             }
             else planes.Add(new Cargo(command, (s) => { WriteLine(s); }) {
                   LandingDistanceNeeded = rnd.Next(1150, 2099),
-                  ID = i * 37 + 1
+                  Id = i * 37 + 1
                });
          }
          #endregion

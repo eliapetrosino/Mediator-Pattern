@@ -8,16 +8,15 @@ namespace Mediator_Pattern
    {
       protected readonly IMediator Mediator;
       public Action<string> LogMethod;
-      public LandingState LandingState;
 
 
       public Airplane(IMediator mediator, Action<string> wheretolog) {
          (Mediator, LogMethod) = (mediator, wheretolog);
       }
 
-
+      public int Id { get; set; }
       public double LandingDistanceNeeded { get; set; }
-      public int ID { get; set; }
+      public LandingState LandingState { get; set; }
       //TODO Add properties to the constructor
 
 
