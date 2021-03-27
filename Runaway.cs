@@ -26,22 +26,29 @@ namespace Mediator_Pattern
 
          Landing.Enqueue(p);
          LandingLogger.LogEnqueuing(p, this);
+         
+         while (Landing.TryPeek(out var next)) 
+         {
+            if (next.LandingState == (LandingState)0) {
+               var last = await Dequeue();
+               LandingLogger.LogWayFree(last, this);
+            }
 
-         if (Landing.TryPeek(out var next)) {
-            if (next != p) await Dequeue(next);
-            else await Dequeue(p);
+            else { 
+               await ((int)this.Length / 200); 
+               continue;
+            }
          }
       }
 
-      public async Task Dequeue(Airplane p) {
-         LandingLogger.LogLanding(p, this);
-         Landing.TryDequeue(out var _);
+      public async Task<Airplane> Dequeue() {
+         var next = Landing.Peek();
+         LandingLogger.LogLanding(next, this);
 
-         var confirm = await p.Land(this);
-
-         Color.Foreground("green"); 
-         p.LogCamaleon(confirm);
-         
+         await next.Land(this);
+         //? Random queue empty error
+         Landing.Dequeue(); 
+         return next;
       }
 
       public StringBuilder CurrentQueue() {
@@ -57,5 +64,3 @@ namespace Mediator_Pattern
       }
    }
 }
-
-

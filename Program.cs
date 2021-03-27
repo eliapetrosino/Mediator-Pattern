@@ -10,7 +10,7 @@ namespace Mediator_Pattern
 
    public class ControlTower : IMediator {
 
-      private readonly IEnumerable<Runaway> runaways; // set private
+      private readonly IEnumerable<Runaway> runaways;
       public string AirportCity { get; set; } = "Helsinki";
 
 
@@ -20,15 +20,14 @@ namespace Mediator_Pattern
 
 
       public async void EnqueueLandingRequest(Airplane p) {
-         while (MatchGate(p) == null) await 2000;
+         while (MatchGate(p) == null) await 1500;
          MatchGate(p).Enqueue(p);
       }
 
       private Runaway MatchGate(Airplane p) {
-         var here = runaways.FirstOrDefault(r => r.Length > p.LandingDistanceNeeded
-               && r.Landing.Count < r.MaxQueueable);
-
-         return here;
+         var matches = runaways.Where(r => r.Length > p.LandingDistanceNeeded);
+         int min = matches.Min(r => r.Landing.Count);
+         return matches.First(r => r.Landing.Count == min);
       }
 
    }
@@ -60,7 +59,7 @@ namespace Mediator_Pattern
             }
             else planes.Add(new Cargo(command, (s) => { WriteLine(s); }) {
                   LandingDistanceNeeded = rnd.Next(1150, 2099),
-                  ID = i * 48 + 1
+                  ID = i * 37 + 1
                });
          }
          #endregion
