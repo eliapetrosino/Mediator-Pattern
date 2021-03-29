@@ -14,6 +14,8 @@ namespace Mediator_Pattern
          (Mediator, LogMethod) = (mediator, wheretolog);
       }
 
+      public Airplane() { }
+
 
       public int Id { get; set; }
       public double LandingDistanceNeeded { get; set; }
@@ -49,6 +51,8 @@ namespace Mediator_Pattern
    public class Aircraft : Airplane {
       public Aircraft(IMediator mediator, Action<string> wheretolog) 
          : base(mediator, wheretolog) { }
+
+      public Aircraft() { }
    }
 
    public class Cargo : Airplane {

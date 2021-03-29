@@ -23,33 +23,33 @@ namespace Mediator_Pattern
 
 
       public async void Enqueue(Airplane p) {
-      //TODO find a way to finish up the remainings at the end of runtime
-
          Landing.Enqueue(p);
          LandingLogger.LogEnqueuing(p, this);
-         
+
          while (Landing.TryPeek(out var next)) {
-            Task<Airplane> _Dequeue = Dequeue();
-
-            if (next.LandingState == (LandingState)0) {
-               var last = await _Dequeue; //? Any difference
-               LandingLogger.LogWayFree(last, this);
-            }
-
-            else { 
-               await ((int)this.Length / 200); 
-               continue;
-            }
+            var current = await Check(next);
+            if (p == current) break;
          }
       }
 
-      public async Task<Airplane> Dequeue() {
+      public async Task<Airplane> Check(Airplane p) {
+
+         if (p.LandingState == (LandingState)0) {
+            var last = await Dequeue();
+            return last;
+         }
+
+         else return new Aircraft();
+      }
+
+      private async Task<Airplane> Dequeue() {
          var next = Landing.Peek();
          LandingLogger.LogLanding(next, this);
 
          await next.Land(this);
-         //? Random queue empty error
-         Landing.Dequeue(); 
+         LandingLogger.LogWayFree(next, this);
+         Landing.Dequeue();
+
          return next;
       }
 
