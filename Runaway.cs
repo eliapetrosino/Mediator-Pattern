@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Mediator_Pattern
@@ -15,10 +14,9 @@ namespace Mediator_Pattern
       public short MaxQueueable { get; }
 
 
-      public Runaway(int Id, double length) 
-      {
+      public Runaway(double length) {
          MaxQueueable = Convert.ToInt16((3200 / length) + 1);
-         this.Id = Id; Length = length;
+         Length = length;
       }
 
 
@@ -28,7 +26,9 @@ namespace Mediator_Pattern
 
          while (Landing.TryPeek(out var next)) {
             var current = await Check(next);
-            if (p == current) break;
+            
+         //? Not storing nexts till the current's landing
+            if (p == current) break; //? * See bottom page
          }
       }
 
@@ -47,9 +47,10 @@ namespace Mediator_Pattern
          LandingLogger.LogLanding(next, this);
 
          await next.Land(this);
+
+      //?Logging here seems to solve color glitches
          LandingLogger.LogWayFree(next, this);
          Landing.Dequeue();
-
          return next;
       }
 
@@ -66,3 +67,9 @@ namespace Mediator_Pattern
       }
    }
 }
+
+
+
+
+//? Adding waiter-else solve that but not disposing the ones cumulated since end
+//? else { await ((int)this.Length / 200); continue; }

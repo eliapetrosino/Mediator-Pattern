@@ -6,12 +6,18 @@ namespace Mediator_Pattern
 {
    public class ControlTower : IMediator {
 
-      private readonly IEnumerable<Runaway> runaways;
+      public readonly IEnumerable<Runaway> runaways;
+      //? static ControlTowerDBContext db = new();
+
+
       public string AirportCity { get; set; } = "Helsinki";
 
 
       public ControlTower(IEnumerable<Runaway> gatesbase) {
          runaways = gatesbase;
+
+         //? Access denied to DB
+         //foreach(var r in runaways) db.Runaways.Add(r); db.SaveChanges();
       }
 
 
@@ -24,11 +30,5 @@ namespace Mediator_Pattern
          int min = matches.Min(r => r.Landing.Count);
          return matches.First(r => r.Landing.Count == min);
       }
-
-
-      // public async void Dispose() {
-      //    foreach (var r in runaways) {
-      //       while(r.Landing.TryPeek(out var _)) await r.Dequeue();
-      //    }
    }
 }

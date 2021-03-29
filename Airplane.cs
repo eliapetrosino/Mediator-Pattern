@@ -10,11 +10,10 @@ namespace Mediator_Pattern
       public Action<string> LogMethod;
 
 
+      public Airplane() { } // To allow fake return out Runaway.Check
       public Airplane(IMediator mediator, Action<string> wheretolog) {
          (Mediator, LogMethod) = (mediator, wheretolog);
       }
-
-      public Airplane() { }
 
 
       public int Id { get; set; }
@@ -23,16 +22,13 @@ namespace Mediator_Pattern
       //TODO Add properties to the constructor
 
 
-
-      public void RequestLanding() 
-      {
+      public void RequestLanding() {
          LandingState = LandingState.Waiting;
          LandingLogger.LogLandingRequest(this);
          Mediator.EnqueueLandingRequest(this); // The key of this pattern!
       }
 
-      public async Task Land(Runaway whereTo) 
-      {
+      public async Task Land(Runaway whereTo) {
          this.LandingState = LandingState.Landing;
          var timeToLand = (int)whereTo.Length / 150;
          await timeToLand;
