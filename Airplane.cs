@@ -14,10 +14,12 @@ namespace Mediator_Pattern
          (Mediator, LogMethod) = (mediator, wheretolog);
       }
 
+
       public int Id { get; set; }
       public double LandingDistanceNeeded { get; set; }
       public LandingState LandingState { get; set; }
       //TODO Add properties to the constructor
+
 
 
       public void RequestLanding() 
@@ -38,6 +40,7 @@ namespace Mediator_Pattern
 
 
    public enum LandingState { Waiting = 0, Landing = 1 } //? Affinare
+
 
 
 

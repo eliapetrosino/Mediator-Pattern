@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pc\\source\\Repos\\Learning_C#\\DesignPatterns\\Structural__Patterns\\Mediator Pattern\\Mediator Pattern.csproj": {}
+    "C:\\Users\\Pc\\source\\Repos\\Learning_C#\\DesignPatterns\\Structural__Patterns\\MediatorPattern\\Mediator Pattern.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pc\\source\\Repos\\Learning_C#\\DesignPatterns\\Structural__Patterns\\Mediator Pattern\\Mediator Pattern.csproj": {
+    "C:\\Users\\Pc\\source\\Repos\\Learning_C#\\DesignPatterns\\Structural__Patterns\\MediatorPattern\\Mediator Pattern.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pc\\source\\Repos\\Learning_C#\\DesignPatterns\\Structural__Patterns\\Mediator Pattern\\Mediator Pattern.csproj",
+        "projectUniqueName": "C:\\Users\\Pc\\source\\Repos\\Learning_C#\\DesignPatterns\\Structural__Patterns\\MediatorPattern\\Mediator Pattern.csproj",
         "projectName": "Mediator Pattern",
-        "projectPath": "C:\\Users\\Pc\\source\\Repos\\Learning_C#\\DesignPatterns\\Structural__Patterns\\Mediator Pattern\\Mediator Pattern.csproj",
+        "projectPath": "C:\\Users\\Pc\\source\\Repos\\Learning_C#\\DesignPatterns\\Structural__Patterns\\MediatorPattern\\Mediator Pattern.csproj",
         "packagesPath": "C:\\Users\\Pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pc\\source\\Repos\\Learning_C#\\DesignPatterns\\Structural__Patterns\\Mediator Pattern\\obj\\",
+        "outputPath": "C:\\Users\\Pc\\source\\Repos\\Learning_C#\\DesignPatterns\\Structural__Patterns\\MediatorPattern\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
