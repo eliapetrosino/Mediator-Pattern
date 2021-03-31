@@ -30,7 +30,7 @@ namespace Mediator_Pattern
 
       public async Task Land(Runaway whereTo) {
          this.LandingState = LandingState.Landing;
-         var timeToLand = (int)whereTo.Length / 150;
+         var timeToLand = (int)whereTo.Length / 175;
          await timeToLand;
       }
    }

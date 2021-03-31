@@ -24,22 +24,13 @@ namespace Mediator_Pattern
          Landing.Enqueue(p);
          LandingLogger.LogEnqueuing(p, this);
 
-         while (Landing.TryPeek(out var next)) {
-            var current = await Check(next);
-            
-         //? Not storing nexts till the current's landing
-            if (p == current) break; //? * See bottom page
+         while (Landing.TryPeek(out var current)) {
+            if (current.LandingState == (LandingState)0) {
+
+               var last = await Dequeue();
+               if (p == last) break; //? *
+            }
          }
-      }
-
-      public async Task<Airplane> Check(Airplane p) {
-
-         if (p.LandingState == (LandingState)0) {
-            var last = await Dequeue();
-            return last;
-         }
-
-         else return new Aircraft();
       }
 
       private async Task<Airplane> Dequeue() {
@@ -49,8 +40,8 @@ namespace Mediator_Pattern
          await next.Land(this);
 
       //?Logging here seems to solve color glitches
-         LandingLogger.LogWayFree(next, this);
          Landing.Dequeue();
+         LandingLogger.LogWayFree(next, this);
          return next;
       }
 
@@ -70,6 +61,7 @@ namespace Mediator_Pattern
 
 
 
-
-//? Adding waiter-else solve that but not disposing the ones cumulated since end
+//* Prima di far eseguire tutto al Task lanciato da ControlTower l'if da solo provocava un
+//* congelamento delle RequestLanding finché un aereo qualsiasi non fosse atterrato con successo.
+//? Adding waiter-else solved that but were not disposing the ones cumulated since the runtime end. 
 //? else { await ((int)this.Length / 200); continue; }
